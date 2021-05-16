@@ -10,11 +10,16 @@
 #' @import purrr
 #'
 #' @export
+#'
+
 pluralize_gift <- function(gift){
 
-gift <- gift %>%
-  str_replace()
-
-return(gift)
-
+if(str_detect(gift,"oo")) {
+  gift <- str_replace(gift,"oo","ee")
+} else if(str_detect(gift,"y")) {
+  gift <- str_replace(gift,"y", "ies")
+} else {
+  gift <- paste0(gift,"s")
+  }
 }
+
